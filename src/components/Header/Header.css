@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  min-height: 74px;
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  max-width: 1140px;
+  width: calc(100% - 140px);
+  margin: 0 auto;
+}
