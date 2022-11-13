@@ -3,12 +3,15 @@ import Navigation from '../Navigation/Navigation';
 import './Header.css';
 import Logo from '../Logo/Logo';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className='header'>
       <div className='header__wrapper'>
         <Logo />
-        <Navigation />
+        <Navigation
+          isLoggedIn={props.isLoggedIn}
+          activeLink={props.activeLink}
+        />
       </div>
     </header>
   );

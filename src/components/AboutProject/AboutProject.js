@@ -8,6 +8,7 @@ const AboutProject = () => {
       sectionTitle='О проекте'
       classSection='about-project'
       classSectionTitle='about-project__title'
+      sectionId='about-project'
     >
       <div className='about-project__text-content'>
         <div className='about-project__text-unit'>

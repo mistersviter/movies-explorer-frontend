@@ -31,16 +31,6 @@ const Footer = () => {
                 Github
               </a>
             </li>
-            <li>
-              <a
-                href='https://t.me/ETarabrin'
-                className='footer__link'
-                rel='noreferrer'
-                target='_blank'
-              >
-                Telegram
-              </a>
-            </li>
           </ul>
         </nav>
       </div>

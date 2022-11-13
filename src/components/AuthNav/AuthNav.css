@@ -13,29 +13,24 @@
 }
 
 .auth-nav__link {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 200px;
   text-decoration: none;
   color: #ffffff;
   font-weight: 500;
   font-size: 12px;
-  line-height: 16px;
+  line-height: 1.3;
   transition: opacity 0.3s ease-in;
 }
 
 .auth-nav__link_type_login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 79px;
+  min-width: 76px;
   min-height: 32px;
-  background: #3ddc84;
+  background: #2be080;
   border-radius: 3px;
-  color: #000000;
+  color: #000;
 }
 
 .auth-nav__link:hover {
@@ -43,6 +38,9 @@
 }
 
 @media screen and (max-width: 400px) {
+  .auth-nav__list {
+    gap: 14px;
+  }
   .auth-nav__link {
     font-size: 10px;
   }

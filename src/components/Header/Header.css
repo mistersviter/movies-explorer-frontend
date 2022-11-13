@@ -17,3 +17,15 @@
   width: calc(100% - 140px);
   margin: 0 auto;
 }
+
+@media screen and (max-width: 850px) {
+  .header__wrapper {
+    width: calc(100% - 60px);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header__wrapper {
+    width: calc(100% - 28px);
+  }
+}
