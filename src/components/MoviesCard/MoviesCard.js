@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
 import './MoviesCard.css';
 
 function MoviesCard(props) {
-  const [isSaved, setIsSaved] = useState(false);
+  const { movie, onSaveMovie, onDeleteMovie, type } = props;
 
   const getMovieDuration = (duration) => {
     const hours = Math.floor(duration / 60);
@@ -12,44 +11,64 @@ function MoviesCard(props) {
     else return `${minutes}м`;
   };
 
-  const getMovieThumbnail = (path) => {
-    return `https://api.nomoreparties.co${path}`;
+  const getMovieThumbnail = () => {
+    if (type === 'default')
+      return `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}`;
+    else return movie.thumbnail;
   };
 
-  const handleClickSave = () => {
-    setIsSaved(!isSaved);
+  const movieThumbnail = getMovieThumbnail();
+
+  const handleOpenYouTube = () => {
+    window.open(movie.trailerLink);
+  };
+
+  const toggleSaveMovie = () => {
+    if (movie.isSaved) {
+      onDeleteMovie(type === 'default' ? movie._id : movie.id);
+    } else {
+      onSaveMovie(movie, movieThumbnail);
+    }
+  };
+
+  const handleDeleteMovie = () => {
+    onDeleteMovie(type === 'default' ? movie.id : movie._id);
   };
 
   return (
-    <article className='movie'>
-      <img
-        className='movie__img'
-        alt='Превью фильма'
-        src={getMovieThumbnail(props.movie.image.formats.thumbnail.url)}
-      />
-      <h2 className='movie__title'>{props.movie.nameRU}</h2>
-      <p className='movie__duration'>
-        {getMovieDuration(props.movie.duration)}
-      </p>
-      {props.type === 'default' ? (
-        <button
-          className={
-            isSaved
-              ? 'movie__button-save movie__button-save_active'
-              : 'movie__button-save'
-          }
-          type='button'
-          aria-label='Сохранить фильм'
-          onClick={handleClickSave}
+    <li className='movies__item'>
+      <article className='movie'>
+        <img
+          className='movie__img'
+          alt='Превью фильма'
+          src={movieThumbnail}
+          onClick={handleOpenYouTube}
         />
-      ) : (
-        <button
-          className='movie__button-delete'
-          type='button'
-          aria-label='Удалить фильм'
-        />
-      )}
-    </article>
+        <h2 className='movie__title'>{props.movie.nameRU}</h2>
+        <p className='movie__duration'>
+          {getMovieDuration(props.movie.duration)}
+        </p>
+        {props.type === 'default' ? (
+          <button
+            className={
+              movie.isSaved
+                ? 'movie__button-save movie__button-save_active'
+                : 'movie__button-save'
+            }
+            type='button'
+            aria-label='Сохранить фильм'
+            onClick={toggleSaveMovie}
+          />
+        ) : (
+          <button
+            className='movie__button-delete'
+            type='button'
+            aria-label='Удалить фильм'
+            onClick={handleDeleteMovie}
+          />
+        )}
+      </article>
+    </li>
   );
 }
 

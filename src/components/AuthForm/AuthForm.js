@@ -9,10 +9,14 @@ const AuthForm = (props) => {
     title,
     formName,
     children,
+    isRequestingServer,
     buttonText,
     suggestionText,
     linkRoute,
     linkText,
+    isValid,
+    onSubmit,
+    serverResponseAuthText,
   } = props;
 
   return (
@@ -23,19 +27,24 @@ const AuthForm = (props) => {
         name={`form-${formName}`}
         id={`form-${formName}`}
         className='auth-form__form'
+        onSubmit={onSubmit}
       >
         {children}
         <Error
           className='auth-form__error'
           id={`submit-${formName}-error`}
-          text=''
+          text={serverResponseAuthText || ''}
         />
         <button
-          className='auth-form__submit-btn'
+          className={
+            isRequestingServer || !isValid
+              ? 'auth-form__submit-btn auth-form__submit-btn_disabled'
+              : 'auth-form__submit-btn'
+          }
           type='submit'
-          aria-label={buttonText}
+          disabled={isRequestingServer || !isValid}
         >
-          {buttonText}
+          {isRequestingServer ? 'Подождите...' : buttonText}
         </button>
       </form>
 
