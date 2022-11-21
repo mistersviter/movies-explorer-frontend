@@ -96,6 +96,8 @@ function App() {
           console.log(err);
         })
         .finally(() => setIsLoading(false));
+    } else {
+      setIsLoading(false);
     }
   }, []);
 
