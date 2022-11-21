@@ -619,7 +619,7 @@ function App() {
                 <Register
                   onRegister={handleRegister}
                   isRequestingServer={isRequestingServer}
-                  serverResponseText={serverResponseAuthText}
+                  serverResponseAuthText={serverResponseAuthText}
                 />
               }
             />
@@ -629,7 +629,7 @@ function App() {
                 <Login
                   onLogin={handleLogin}
                   isRequestingServer={isRequestingServer}
-                  serverResponseText={serverResponseAuthText}
+                  serverResponseAuthText={serverResponseAuthText}
                 />
               }
             />
@@ -683,7 +683,7 @@ function App() {
                   element={Profile}
                   onLogOut={handleLogOut}
                   onUpdateUser={handleUpdateUser}
-                  isLoading={isRequestingServer}
+                  isRequestingServer={isRequestingServer}
                   serverResponseUserUpdateText={serverResponseUserUpdateText}
                 />
               }

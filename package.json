@@ -1,8 +1,6 @@
 {
   "name": "movies-explorer-frontend",
   "description": "Проект: Movies explorer",
-  "homepage": "https://movies-exp.nomoredomains.club",
-  "main": "https://api.movies-exp.nomoredomains.club/index.hml",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
