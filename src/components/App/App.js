@@ -170,7 +170,6 @@ function App() {
         setServerResponseAuthText('Вход выполнен.');
       })
       .catch((err) => {
-        console.log(err);
         if (err === 'Error: 401') {
           setServerResponseAuthText(
             'Пользователь не найден. Проверьте правильность имени и пароля.'
