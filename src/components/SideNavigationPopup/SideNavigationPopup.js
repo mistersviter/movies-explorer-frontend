@@ -45,7 +45,7 @@ const SideNavigationPopup = (props) => {
             </NavLink>
           </li>
         </ul>
-        <Link className='navigation-popup__account-btn' to='/profile'>
+        <Link className='navigation-popup__account-btn' to='/profile' >
           Аккаунт
         </Link>
       </nav>

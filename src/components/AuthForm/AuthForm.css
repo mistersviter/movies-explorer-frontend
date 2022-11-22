@@ -46,8 +46,13 @@
   min-height: 46px;
 }
 
-.auth-form__input:invalid {
-  color: #ee3465;
+.auth-form__input_error {
+  outline: 1px solid #ee3465 !important;
+  color: #ee3465 !important;
+}
+
+.auth-form__input:focus {
+  outline: 1px solid #2be080;
 }
 
 .auth-form__submit-btn {
@@ -64,6 +69,13 @@
   text-align: center;
   height: 45px;
   transition: opacity 0.3s ease-in;
+}
+
+.auth-form__submit-btn_disabled {
+  background-color: #8b8b8b;
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
 }
 
 .auth-form__submit-btn:hover {

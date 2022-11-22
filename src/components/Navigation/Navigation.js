@@ -4,9 +4,12 @@ import { useState } from 'react';
 import AuthNav from '../AuthNav/AuthNav';
 import './Navigation.css';
 import SideNavigationPopup from '../SideNavigationPopup/SideNavigationPopup';
+import { useContext } from 'react';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 const Navigation = (props) => {
-  const { isLoggedIn, activeLink } = props;
+  const { currentUser } = useContext(CurrentUserContext);
+  const { activeLink } = props;
 
   const [sideNavigationPopupVisible, setSideNavigationPopupVisible] =
     useState(false);
@@ -19,7 +22,7 @@ const Navigation = (props) => {
     setSideNavigationPopupVisible(true);
   };
 
-  return isLoggedIn ? (
+  return currentUser?.email ? (
     !sideNavigationPopupVisible ? (
       <>
         <nav className='common-nav'>
